@@ -1,4 +1,4 @@
-# Cisco DNA Center Webhook Receiver
+# Cisco DNA Center and SD-WAN Webhook Receiver
 
 
 This Python script will run on PythonAnywhere, or a Linux container.
