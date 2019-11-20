@@ -116,7 +116,7 @@ url = WEBHOOK_URL
 header = {'content-type': 'application/json'}
 response = requests.post(url, auth=basic_auth, data=json.dumps(dnac_param), headers=header, verify=False)
 response_json = response.json()
-print('\nCisco DNAC Notification Status Code: ', response_json)
+print('\nCisco DNAC Notification Status: ', response_json)
 
 
 # test the Webhook with a Cisco SD-WAN notification
@@ -125,7 +125,7 @@ url = WEBHOOK_URL
 header = {'content-type': 'application/json'}
 response = requests.post(url, auth=basic_auth, data=json.dumps(sdwan_param), headers=header, verify=False)
 response_json = response.json()
-print('\nSD-WAN Notification Status Code: ', response_json)
+print('\nSD-WAN Notification Status: ', response_json)
 
 
 # print the HTTP BasicAuth encoding - needed for Cisco DNA Center webhook configuration
