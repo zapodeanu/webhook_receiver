@@ -133,7 +133,7 @@ def webhook():
             pass
 
         try:
-            if request_json['values'] != {}:
+            if request_json['values'] != []:
                 sdwan_notification = request_json
 
                 # save all info to variables, prepare to save to file
