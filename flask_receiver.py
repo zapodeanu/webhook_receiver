@@ -69,6 +69,7 @@ def dashboard():
     return '<h1>Dashboard To DO!</h1>', 200
 
 
+# noinspection PyBroadException
 @app.route('/webhook', methods=['POST'])  # create a decorator for /webhook, method POST
 def webhook():
     if request.method == 'POST':
@@ -128,10 +129,11 @@ def webhook():
                 # post message in teams space, with url for the issue
                 post_space_url_message(WEBEX_TEAMS_ROOM, teams_message, url)
 
-        finally:
+        except:
             pass
+
         try:
-            if 'values' in request_json:
+            if request_json['values'] != {}:
                 sdwan_notification = request_json
 
                 # save all info to variables, prepare to save to file
@@ -180,7 +182,7 @@ def webhook():
                 # post message in teams space, with url for the issue
                 teams_message = 'Issue Details:  Click Here\n'
                 post_space_url_message(WEBEX_TEAMS_ROOM, teams_message, url)
-        finally:
+        except:
             pass
         return {'response': 'Notification Received'}, 200
     else:
